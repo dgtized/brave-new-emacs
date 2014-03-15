@@ -49,16 +49,6 @@
      (ensure-packages '(better-defaults))
    #+END_SRC
 
-** Magit
-
-   #+BEGIN_SRC emacs-lisp
-     (ensure-packages '(magit))
-     (global-set-key (kbd "C-x g") 'magit-status)
-   #+END_SRC
-
-   - magit-blame-mode :: Inline blame mode
-   - magit-file-log :: Show git log for file
-
 ** Smex
 
    Smart M-x, or Ido for M-x
@@ -77,6 +67,16 @@
      (global-set-key (kbd "C-;") 'ace-jump-mode)
      (global-set-key (kbd "C-M-;") 'ace-jump-mode-pop-mark)
    #+END_SRC
+
+** Magit
+
+   #+BEGIN_SRC emacs-lisp
+     (ensure-packages '(magit))
+     (global-set-key (kbd "C-x g") 'magit-status)
+   #+END_SRC
+
+   - magit-blame-mode :: Inline blame mode
+   - magit-file-log :: Show git log for file
 
 ** Themes!
 
