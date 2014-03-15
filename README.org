@@ -7,6 +7,10 @@
 ** Builtin Keybindings
    - C-x e :: Eval previous expression
    - C-M-x :: Eval current expression
+   - TAB :: Org and Magit Toggle
+   - C-h m :: Mode specific help
+   - C-h k :: Key specific help
+   - C-h f :: Function specific help
 
 ** Emacs Package Archive
 
@@ -50,6 +54,9 @@
      (ensure-packages '(magit))
      (global-set-key (kbd "C-x g") 'magit-status)
    #+END_SRC
+
+   - magit-blame-mode :: Inline blame mode
+   - magit-file-log :: Show git log for file
 
 ** Smex
 
