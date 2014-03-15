@@ -11,6 +11,7 @@
    - C-h m :: Mode specific help
    - C-h k :: Key specific help
    - C-h f :: Function specific help
+   - C-c C-c :: The default DWIM at point (particularly Org-mode)
 
 ** Emacs Package Archive
 
@@ -32,7 +33,7 @@
 
    #+BEGIN_SRC emacs-lisp
      (menu-bar-mode t) ;; for presentation
-     (defalias 'yes-or-no-p 'y-or-no-p)     
+     (defalias 'yes-or-no-p 'y-or-n-p)     
    #+END_SRC
 
 ** Automatic Install
