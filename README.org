@@ -136,7 +136,7 @@
 
 * Automatically Install Missing Packages
 
-  Just copy your init file and start emacs
+  Just copy your init.el file and start emacs
 
   #+BEGIN_SRC emacs-lisp :tangle init.el
     (defun ensure-packages (package-list)
@@ -234,4 +234,5 @@
   C-c C-l to link in org-mode, C-c C-o to [[*Org%20Links][visit]]
 
 * Comments or Questions?
+  - C-c C-v t :: tangles init.el from this file
 
