@@ -13,7 +13,9 @@
   Start emacs 24 and follow along
   : emacs -q README.org &
 
-  First, we need to ensure we are not using the default .emacs.d
+  - Ensure we are not using the default .emacs.d.
+  - Unnecessary for an actual configuration
+
   #+BEGIN_SRC emacs-lisp
     (setq user-emacs-directory (getenv "PWD"))
     (setq package-user-dir (locate-user-emacs-file "elpa"))
@@ -23,6 +25,16 @@
     (global-set-key (kbd "<f8>") 'org-tree-slide-mode)
     (global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
   #+END_SRC
+
+* Emacs
+  - Binary is an emacs lisp interpreter
+  - Majority of functionality is written in elisp
+  - Very little distinction between user code and distribution
+
+* Emacs Init
+  Loads [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Init-File.html][init files]] in order before giving control to user
+  - Site or distribution
+  - User (~/.emacs, ~/.emacs.el or ~/.emacs.d/init.el)
 
 * Major Mode
   Only one active at a time
@@ -37,6 +49,7 @@
   As many as you want
 
   Examples:
+  - column-number-mode
   - visual-line-mode
   - flyspell-mode
   - transient-mark-mode
@@ -170,6 +183,3 @@
   #+END_SRC
 
   C-c C-l to link in org-mode, C-c C-o to visit
-
-  
-
