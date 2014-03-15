@@ -2,7 +2,18 @@
 #+Author: Charles Comstock <dgtized@gmail.com>
 #+EPRESENT_FRAME_LEVEL: 1
 
+* Overview
+  - Configuration Basics
+  - Emacs Packages
+  - Automatic Install
+  - Examples
+
 * Witchcraft For Presentation
+
+  Start emacs 24 and follow along
+  : emacs -q README.org &
+
+  First, we need to ensure we are not using the default .emacs.d
   #+BEGIN_SRC emacs-lisp
     (setq user-emacs-directory (getenv "PWD"))
     (setq package-user-dir (locate-user-emacs-file "elpa"))
@@ -12,9 +23,6 @@
     (global-set-key (kbd "<f8>") 'org-tree-slide-mode)
     (global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
   #+END_SRC
-
-* Brave New Emacs
-  Welcome
 
 * Major Mode
   Only one active at a time
@@ -152,6 +160,7 @@
 
   #+BEGIN_SRC emacs-lisp
     (ensure-packages '(zenburn-theme))
+    (load-theme 'zenburn t)
   #+END_SRC
 
 * Comments or Questions?
