@@ -8,10 +8,14 @@
   - Automatically installing packages
   - Example Packages
 
-* Witchcraft For Presentation
+* Incantations to Setup Presentation
 
-  Start emacs 24 and follow along
-  : emacs -q README.org &
+  Using Emacs 24 to follow along:
+  #+BEGIN_SRC sh
+    git clone http://github.com/dgtized/brave-new-emacs.git
+    cd brave-new-emacs
+    emacs -q README.org &
+  #+END_SRC
 
   - Ensure we are not using the default .emacs.d.
   - Unnecessary for an actual configuration
