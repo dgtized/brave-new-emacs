@@ -27,6 +27,7 @@
    M-x package-lisp-packages - install [[https://github.com/technomancy/better-defaults/blob/master/better-defaults.el][better-defaults]]
 
    #+BEGIN_SRC emacs-lisp
+     (menu-bar-mode t) ;; for presentation
      (defalias 'yes-or-no-p 'y-or-no-p)     
    #+END_SRC
 
