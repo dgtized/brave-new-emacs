@@ -2,13 +2,17 @@
 #+Author: Charles Comstock <dgtized@gmail.com>
 #+EPRESENT_FRAME_LEVEL: 1
 * Witchcraft For Presentation
-
   #+BEGIN_SRC emacs-lisp
     (setq user-emacs-directory (getenv "PWD"))
     (setq package-user-dir (locate-user-emacs-file "elpa"))
   #+END_SRC
 
 * Brave New Emacs
+
+* Modes
+  - Major Modes :: Only one at a time
+  - Minor Modes :: As many as you want
+
 * Builtin Keybindings
   - C-x C-e :: Eval previous expression
   - C-M-x :: Eval current expression
