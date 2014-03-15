@@ -51,7 +51,26 @@
      (global-set-key (kbd "C-x g") 'magit-status)
    #+END_SRC
 
+** Smex
+
+   Smart M-x, or Ido for M-x
+
+   #+BEGIN_SRC emacs-lisp
+     (ensure-packages '(smex))
+     (global-set-key (kbd "C-x C-m") 'smex)
    #+END_SRC
+
+** Ace Jump Mode
+
+   Faster then a speeding mouse!
+
+   #+BEGIN_SRC emacs-lisp
+     (ensure-packages '(ace-jump-mode))
+     (global-set-key (kbd "C-;") 'ace-jump-mode)
+     (global-set-key (kbd "C-M-;") 'ace-jump-mode-pop-mark)
+   #+END_SRC
+
+   I actually prefer C-' but it overrides org-cycle-agenda-files
 
 * Spare Slides
 ** A Clean View
