@@ -112,7 +112,7 @@
   - ELPA :: Emacs Lisp Package Archive
             Hosted at GNU Savannah, FSF-GPL only
 
-  #+BEGIN_SRC emacs-lisp
+  #+BEGIN_SRC emacs-lisp :tangle init.el
     (require 'package)
     (add-to-list
      'package-archives
@@ -126,12 +126,19 @@
 
   #+BEGIN_SRC emacs-lisp
     (menu-bar-mode t) ;; for presentation
-    (defalias 'yes-or-no-p 'y-or-n-p)     
   #+END_SRC
 
-* Automatic Install
+  #+BEGIN_SRC emacs-lisp :tangle init.el
+    (defalias 'yes-or-no-p 'y-or-n-p)
+    (define-key help-map (kbd "C-l") 'find-library)
+    (require 'dired-x) ;; C-x C-j dired-jump
+  #+END_SRC
 
-  #+BEGIN_SRC emacs-lisp
+* Automatically Install Missing Packages
+
+  Just copy your init file and start emacs
+
+  #+BEGIN_SRC emacs-lisp :tangle init.el
     (defun ensure-packages (package-list)
       "Ensures packages in list are installed locally"
       (unless (file-exists-p package-user-dir)
@@ -147,7 +154,7 @@
 
   Smart M-x, or Ido for M-x
 
-  #+BEGIN_SRC emacs-lisp
+  #+BEGIN_SRC emacs-lisp :tangle init.el
     (ensure-packages '(smex))
     (global-set-key (kbd "C-x C-m") 'smex)
   #+END_SRC
@@ -156,7 +163,7 @@
 
   Faster than a speeding mouse!
 
-  #+BEGIN_SRC emacs-lisp
+  #+BEGIN_SRC emacs-lisp :tangle init.el
     (ensure-packages '(ace-jump-mode))
     (global-set-key (kbd "C-;")
                     'ace-jump-mode)
@@ -166,7 +173,7 @@
 
 * Magit
 
-  #+BEGIN_SRC emacs-lisp
+  #+BEGIN_SRC emacs-lisp :tangle init.el
     (ensure-packages '(magit))
     (global-set-key (kbd "C-x g") 'magit-status)
   #+END_SRC
@@ -176,14 +183,14 @@
 
 * Themes!
 
-  #+BEGIN_SRC emacs-lisp
+  #+BEGIN_SRC emacs-lisp :tangle init.el
     (ensure-packages '(zenburn-theme))
     (load-theme 'zenburn t)
   #+END_SRC
 
 * Comments or Questions?
 
-  #+BEGIN_SRC emacs-lisp
+  #+BEGIN_SRC emacs-lisp :tangle init.el
     (global-set-key (kbd "C-c l") 'org-store-link)
   #+END_SRC
 
