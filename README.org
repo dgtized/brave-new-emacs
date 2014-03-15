@@ -1,10 +1,16 @@
 #+Title: Brave New Emacs
 #+Author: Charles Comstock <dgtized@gmail.com>
 #+EPRESENT_FRAME_LEVEL: 1
+
 * Witchcraft For Presentation
   #+BEGIN_SRC emacs-lisp
     (setq user-emacs-directory (getenv "PWD"))
     (setq package-user-dir (locate-user-emacs-file "elpa"))
+    (add-to-list 'load-path user-emacs-directory t)
+    ;; From https://raw.github.com/takaxp/org-tree-slide/master/org-tree-slide.el
+    (require 'org-tree-slide)
+    (global-set-key (kbd "<f8>") 'org-tree-slide-mode)
+    (global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
   #+END_SRC
 
 * Brave New Emacs
