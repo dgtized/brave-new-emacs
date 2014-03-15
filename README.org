@@ -1,86 +1,91 @@
+#+Title: Brave New Emacs
+#+Author: Charles Comstock <dgtized@gmail.com>
+#+EPRESENT_FRAME_LEVEL: 1
 * Witchcraft For Presentation
+
   #+BEGIN_SRC emacs-lisp
     (setq user-emacs-directory (getenv "PWD"))
     (setq package-user-dir (locate-user-emacs-file "elpa"))
   #+END_SRC
+
 * Brave New Emacs
-** Builtin Keybindings
-   - C-x C-e :: Eval previous expression
-   - C-M-x :: Eval current expression
-   - TAB :: Org and Magit Toggle
-   - C-h m :: Mode specific help
-   - C-h k :: Key specific help
-   - C-h f :: Function specific help
-   - C-c C-c :: The default DWIM at point (particularly Org-mode)
+* Builtin Keybindings
+  - C-x C-e :: Eval previous expression
+  - C-M-x :: Eval current expression
+  - TAB :: Org and Magit Toggle
+  - C-h m :: Mode specific help
+  - C-h k :: Key specific help
+  - C-h f :: Function specific help
+  - C-c C-c :: The default DWIM at point (particularly Org-mode)
 
-** Emacs Package Archive
+* Emacs Package Archive
 
-   - Melpa :: Milkypostman's Emacs Lisp Package Archive
-	      latest and bleeding edge
-   - Marmalade :: Spreadable Elisp
-		  versioned and recent
+  - Melpa :: Milkypostman's Emacs Lisp Package Archive
+             latest and bleeding edge
+  - Marmalade :: Spreadable Elisp
+                 versioned and recent
 
-   #+BEGIN_SRC emacs-lisp
-     (require 'package)
-     (add-to-list 'package-archives
-                  '("melpa" . "http://melpa.milkbox.net/packages/") t)
-     (package-initialize)
-   #+END_SRC
+  #+BEGIN_SRC emacs-lisp
+    (require 'package)
+    (add-to-list 'package-archives
+                 '("melpa" . "http://melpa.milkbox.net/packages/") t)
+    (package-initialize)
+  #+END_SRC
 
-** Let's install some packages
+* Let's install some packages
 
-   M-x package-lisp-packages - install [[https://github.com/technomancy/better-defaults/blob/master/better-defaults.el][better-defaults]]
+  M-x package-lisp-packages - install [[https://github.com/technomancy/better-defaults/blob/master/better-defaults.el][better-defaults]]
 
-   #+BEGIN_SRC emacs-lisp
-     (menu-bar-mode t) ;; for presentation
-     (defalias 'yes-or-no-p 'y-or-n-p)     
-   #+END_SRC
+  #+BEGIN_SRC emacs-lisp
+    (menu-bar-mode t) ;; for presentation
+    (defalias 'yes-or-no-p 'y-or-n-p)     
+  #+END_SRC
 
-** Automatic Install
+* Automatic Install
 
-   #+BEGIN_SRC emacs-lisp
-     (defun ensure-packages (package-list)
-       "Ensures packages in list are installed locally"
-       (unless (file-exists-p package-user-dir) (package-refresh-contents))
-       (dolist (package package-list)
-         (unless (package-installed-p package)
-           (package-install package))))
-     
-     (ensure-packages '(better-defaults))
-   #+END_SRC
+  #+BEGIN_SRC emacs-lisp
+    (defun ensure-packages (package-list)
+      "Ensures packages in list are installed locally"
+      (unless (file-exists-p package-user-dir) (package-refresh-contents))
+      (dolist (package package-list)
+        (unless (package-installed-p package)
+          (package-install package))))
+    
+    (ensure-packages '(better-defaults))
+  #+END_SRC
 
-** Smex
+* Smex
 
-   Smart M-x, or Ido for M-x
+  Smart M-x, or Ido for M-x
 
-   #+BEGIN_SRC emacs-lisp
-     (ensure-packages '(smex))
-     (global-set-key (kbd "C-x C-m") 'smex)
-   #+END_SRC
+  #+BEGIN_SRC emacs-lisp
+    (ensure-packages '(smex))
+    (global-set-key (kbd "C-x C-m") 'smex)
+  #+END_SRC
 
-** Ace Jump Mode
+* Ace Jump Mode
 
-   Faster then a speeding mouse!
+  Faster then a speeding mouse!
 
-   #+BEGIN_SRC emacs-lisp
-     (ensure-packages '(ace-jump-mode))
-     (global-set-key (kbd "C-;") 'ace-jump-mode)
-     (global-set-key (kbd "C-M-;") 'ace-jump-mode-pop-mark)
-   #+END_SRC
+  #+BEGIN_SRC emacs-lisp
+    (ensure-packages '(ace-jump-mode))
+    (global-set-key (kbd "C-;") 'ace-jump-mode)
+    (global-set-key (kbd "C-M-;") 'ace-jump-mode-pop-mark)
+  #+END_SRC
 
-** Magit
+* Magit
 
-   #+BEGIN_SRC emacs-lisp
-     (ensure-packages '(magit))
-     (global-set-key (kbd "C-x g") 'magit-status)
-   #+END_SRC
+  #+BEGIN_SRC emacs-lisp
+    (ensure-packages '(magit))
+    (global-set-key (kbd "C-x g") 'magit-status)
+  #+END_SRC
 
-   - magit-blame-mode :: Inline blame mode
-   - magit-file-log :: Show git log for file
+  - magit-blame-mode :: Inline blame mode
+  - magit-file-log :: Show git log for file
 
-** Themes!
+* Themes!
 
-   #+BEGIN_SRC emacs-lisp
-     (ensure-packages '(zenburn-theme))
-   #+END_SRC
+  #+BEGIN_SRC emacs-lisp
+    (ensure-packages '(zenburn-theme))
+  #+END_SRC
 
