@@ -14,31 +14,83 @@
   #+END_SRC
 
 * Brave New Emacs
+  Welcome
 
-* Modes
-  - Major Modes :: Only one at a time
-  - Minor Modes :: As many as you want
+* Major Mode
+  Only one active at a time
 
-* Builtin Keybindings
+  Examples:
+  - org-mode
+  - emacs-lisp-mode
+  - eshell-mode
+  - minibuffer
+
+* Minor Modes
+  As many as you want
+
+  Examples:
+  - visual-line-mode
+  - flyspell-mode
+  - transient-mark-mode
+  - show-paren-mode
+
+* Keybindings
+  - [[file:/usr/share/emacs/24.3.50/lisp/subr.el.gz::(defvar%20global-map%20nil][Global]]  :: The top level binding
+  - [[file:/usr/share/emacs/24.3.50/lisp/bindings.el.gz::(define-key%20ctl-x-map%20"r"%20ctl-x-r-map)][Prefix]]  :: Use prefix and dispatch to new map
+  - Minimap :: Temporary mode with different bindings
+               Try C-x C-h or C-x a C-h
+
+  Keymaps are inherited or unique
+
+* Keybinding Examples
   - C-x C-e :: Eval previous expression
-  - C-M-x :: Eval current expression
+  - C-M-x :: Eval defun
+  - C-u C-M-x :: Debug defun at point
   - TAB :: Org and Magit Toggle
   - C-h m :: Mode specific help
   - C-h k :: Key specific help
   - C-h f :: Function specific help
-  - C-c C-c :: The default DWIM at point (particularly Org-mode)
+  - C-c C-c :: Org-mode DWIM at point
+
+* Load, Require and Autoload
+** Load
+   : (load "/path/to/library")
+   Always executes
+** Provide
+   : (provide 'foo)
+   Names a files code 'foo
+** Require
+   : (require 'foo)
+   Conditionally load 'foo from load-path
+** Autoload
+   : (autoload 'foo-func 'foo)
+   Requires 'foo if 'foo-func is used
+
+* Packages
+
+  A file or files containing elisp
+
+  - [[https://github.com/technomancy/better-defaults/blob/master/better-defaults.el][better-defaults]]
 
 * Emacs Package Archive
 
+  Automatic, versioned method for downloading emacs packages
+
+  - Builtin since Emacs 24
+
+* Install MELPA
   - Melpa :: Milkypostman's Emacs Lisp Package Archive
              latest and bleeding edge
   - Marmalade :: Spreadable Elisp
                  versioned and recent
+  - ELPA :: Emacs Lisp Package Archive
+            Hosted at GNU Savannah, FSF-GPL only
 
   #+BEGIN_SRC emacs-lisp
     (require 'package)
-    (add-to-list 'package-archives
-                 '("melpa" . "http://melpa.milkbox.net/packages/") t)
+    (add-to-list
+     'package-archives
+     '("melpa" . "http://melpa.milkbox.net/packages/"))
     (package-initialize)
   #+END_SRC
 
@@ -56,7 +108,8 @@
   #+BEGIN_SRC emacs-lisp
     (defun ensure-packages (package-list)
       "Ensures packages in list are installed locally"
-      (unless (file-exists-p package-user-dir) (package-refresh-contents))
+      (unless (file-exists-p package-user-dir)
+        (package-refresh-contents))
       (dolist (package package-list)
         (unless (package-installed-p package)
           (package-install package))))
@@ -75,12 +128,14 @@
 
 * Ace Jump Mode
 
-  Faster then a speeding mouse!
+  Faster than a speeding mouse!
 
   #+BEGIN_SRC emacs-lisp
     (ensure-packages '(ace-jump-mode))
-    (global-set-key (kbd "C-;") 'ace-jump-mode)
-    (global-set-key (kbd "C-M-;") 'ace-jump-mode-pop-mark)
+    (global-set-key (kbd "C-;")
+                    'ace-jump-mode)
+    (global-set-key (kbd "C-M-;") 
+                    'ace-jump-mode-pop-mark)
   #+END_SRC
 
 * Magit
@@ -98,4 +153,14 @@
   #+BEGIN_SRC emacs-lisp
     (ensure-packages '(zenburn-theme))
   #+END_SRC
+
+* Comments or Questions?
+
+  #+BEGIN_SRC emacs-lisp
+    (global-set-key (kbd "C-c l") 'org-store-link)
+  #+END_SRC
+
+  C-c C-l to link in org-mode, C-c C-o to visit
+
+  
 
