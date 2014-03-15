@@ -26,13 +26,30 @@
 
    M-x package-lisp-packages - install [[https://github.com/technomancy/better-defaults/blob/master/better-defaults.el][better-defaults]]
 
-** Magit
+   #+BEGIN_SRC emacs-lisp
+     (defalias 'yes-or-no-p 'y-or-no-p)     
+   #+END_SRC
 
-   M-x package-lisp-packages - install [[https://github.com/magit/magit][magit]]
+** Automatic Install
 
    #+BEGIN_SRC emacs-lisp
+     (defun ensure-packages (package-list)
+       "Ensures packages in list are installed locally"
+       (unless (file-exists-p package-user-dir) (package-refresh-contents))
+       (dolist (package package-list)
+         (unless (package-installed-p package)
+           (package-install package))))
+     
+     (ensure-packages '(better-defaults))
+   #+END_SRC
+
+** Magit
+
+   #+BEGIN_SRC emacs-lisp
+     (ensure-packages '(magit))
      (global-set-key (kbd "C-x g") 'magit-status)
-     (defalias 'yes-or-no-p 'y-or-no-p)
+   #+END_SRC
+
    #+END_SRC
 
 * Spare Slides
