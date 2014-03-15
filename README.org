@@ -3,10 +3,10 @@
 #+EPRESENT_FRAME_LEVEL: 1
 
 * Overview
-  - Configuration Basics
-  - Emacs Packages
-  - Automatic Install
-  - Examples
+  - Background on Init, Modes, and Keybindings
+  - Package.el and init.el
+  - Automatically installing packages
+  - Example Packages
 
 * Witchcraft For Presentation
 
@@ -37,7 +37,8 @@
   - User (~/.emacs, ~/.emacs.el or ~/.emacs.d/init.el)
 
 * Major Mode
-  Only one active at a time
+  - Defines how a user interacts with the editor
+  - Only one active at a time
 
   Examples:
   - org-mode
@@ -76,8 +77,11 @@
 * Packages
 
   A file or files containing elisp
-
-  - [[https://github.com/technomancy/better-defaults/blob/master/better-defaults.el][better-defaults]]
+  
+  - [[file:/usr/share/emacs/24.3.50/lisp/rot13.el.gz::(provide%20'rot13)][rot13]] :: decrypt rot13 library/mode
+  - [[file:/usr/share/emacs/24.3.50/lisp/ido.el.gz::%3B%3B%3B%20ido.el%20---%20interactively%20do%20things%20with%20buffers%20and%20files][ido]] :: minor mode extending minibuffer completion
+  - [[file:/usr/share/emacs/24.3.50/lisp/simple.el.gz::%3B%3B%3B%20simple.el%20---%20basic%20editing%20commands%20for%20Emacs%20-*-%20lexical-binding:%20t%20-*-][simple]] :: the basic editor commands
+  - isearch, linum, byte-compiler, interpeter, edebug, menu
 
 * Load, Require and Autoload
 ** Load
@@ -116,7 +120,7 @@
     (package-initialize)
   #+END_SRC
 
-* Let's install some packages
+* Manually Install Packages
 
   M-x package-lisp-packages - install [[https://github.com/technomancy/better-defaults/blob/master/better-defaults.el][better-defaults]]
 
