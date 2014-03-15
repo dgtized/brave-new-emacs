@@ -240,3 +240,6 @@
 * Comments or Questions?
   - C-c C-v t :: tangles init.el from this file
 
+  #+BEGIN_SRC sh
+    emacs -q -l init.el &
+  #+END_SRC
