@@ -194,13 +194,6 @@
     (projectile-global-mode)
   #+END_SRC
 
-* Themes!
-
-  #+BEGIN_SRC emacs-lisp :tangle init.el
-    (ensure-packages '(zenburn-theme))
-    (load-theme 'zenburn t)
-  #+END_SRC
-
 * Hooks and defadvice
 
   - Hooks are callbacks to run a list of functions
@@ -222,10 +215,23 @@
       (add-hook hook 'turn-on-eldoc-mode))
   #+END_SRC
 
-* Comments or Questions?
+* Themes!
+
+  #+BEGIN_SRC emacs-lisp :tangle init.el
+    (ensure-packages '(zenburn-theme))
+    (load-theme 'zenburn t)
+  #+END_SRC
+
+* Org Links
+
+  Org can create links like so:
+  : [[href][name]]
 
   #+BEGIN_SRC emacs-lisp :tangle init.el
     (global-set-key (kbd "C-c l") 'org-store-link)
   #+END_SRC
 
-  C-c C-l to link in org-mode, C-c C-o to visit
+  C-c C-l to link in org-mode, C-c C-o to [[*Org%20Links][visit]]
+
+* Comments or Questions?
+
