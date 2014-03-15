@@ -84,23 +84,3 @@
      (ensure-packages '(zenburn-theme))
    #+END_SRC
 
-* Spare Slides
-** A Clean View
-
-   #+BEGIN_SRC emacs-lisp
-     ;; (menu-bar-mode -1)
-     (if (fboundp 'tool-bar-mode)
-         (tool-bar-mode -1))
-     
-     (if (fboundp 'scroll-bar-mode)
-         (scroll-bar-mode -1))
-   #+END_SRC
-
-** Interactively Do Things
-
-   #+BEGIN_SRC emacs-lisp
-     (ido-mode t)
-     (setq ido-enable-flex-matching t)
-     
-     (show-paren-mode t)
-   #+END_SRC
