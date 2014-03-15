@@ -5,7 +5,7 @@
   #+END_SRC
 * Brave New Emacs
 ** Builtin Keybindings
-   - C-x e :: Eval previous expression
+   - C-x C-e :: Eval previous expression
    - C-M-x :: Eval current expression
    - TAB :: Org and Magit Toggle
    - C-h m :: Mode specific help
