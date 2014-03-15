@@ -201,6 +201,27 @@
     (load-theme 'zenburn t)
   #+END_SRC
 
+* Hooks and defadvice
+
+  - Hooks are callbacks to run a list of functions
+  - devadvice is aspect oriented programming
+  - Both can be used to extend existing functionality
+
+* Emacs Slime Navigation
+
+  Quickly navigate to function at point in elisp
+  - M-. :: jump to function
+  - M-, :: return to last point
+
+  Eldoc is builtin and shows function arguments in minibuffer
+
+  #+BEGIN_SRC emacs-lisp :tangle init.el
+    (ensure-packages '(elisp-slime-nav))
+    (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
+      (add-hook hook 'turn-on-elisp-slime-nav-mode)
+      (add-hook hook 'turn-on-eldoc-mode))
+  #+END_SRC
+
 * Comments or Questions?
 
   #+BEGIN_SRC emacs-lisp :tangle init.el
