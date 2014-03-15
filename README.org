@@ -1,0 +1,57 @@
+* Witchcraft For Presentation
+  #+BEGIN_SRC emacs-lisp
+    (setq user-emacs-directory (getenv "PWD"))
+    (setq package-user-dir (locate-user-emacs-file "elpa"))
+  #+END_SRC
+* Brave New Emacs
+** Builtin Keybindings
+   - C-x e :: Eval previous expression
+   - C-M-x :: Eval current expression
+
+** Emacs Package Archive
+
+   - Melpa :: Milkypostman's Emacs Lisp Package Archive
+	      latest and bleeding edge
+   - Marmalade :: Spreadable Elisp
+		  versioned and recent
+
+   #+BEGIN_SRC emacs-lisp
+     (require 'package)
+     (add-to-list 'package-archives
+                  '("melpa" . "http://melpa.milkbox.net/packages/") t)
+     (package-initialize)
+   #+END_SRC
+
+** Let's install some packages
+
+   M-x package-lisp-packages - install [[https://github.com/technomancy/better-defaults/blob/master/better-defaults.el][better-defaults]]
+
+** Magit
+
+   M-x package-lisp-packages - install [[https://github.com/magit/magit][magit]]
+
+   #+BEGIN_SRC emacs-lisp
+     (global-set-key (kbd "C-x g") 'magit-status)
+     (defalias 'yes-or-no-p 'y-or-no-p)
+   #+END_SRC
+
+* Spare Slides
+** A Clean View
+
+   #+BEGIN_SRC emacs-lisp
+     ;; (menu-bar-mode -1)
+     (if (fboundp 'tool-bar-mode)
+         (tool-bar-mode -1))
+     
+     (if (fboundp 'scroll-bar-mode)
+         (scroll-bar-mode -1))
+   #+END_SRC
+
+** Interactively Do Things
+
+   #+BEGIN_SRC emacs-lisp
+     (ido-mode t)
+     (setq ido-enable-flex-matching t)
+     
+     (show-paren-mode t)
+   #+END_SRC
