@@ -73,6 +73,12 @@
   - C-h f :: Function specific help
   - C-c C-c :: Org-mode DWIM at point
 
+* Packages
+
+  A file or files containing elisp
+
+  - [[https://github.com/technomancy/better-defaults/blob/master/better-defaults.el][better-defaults]]
+
 * Load, Require and Autoload
 ** Load
    : (load "/path/to/library")
@@ -87,16 +93,11 @@
    : (autoload 'foo-func 'foo)
    Requires 'foo if 'foo-func is used
 
-* Packages
+* Package.el
 
-  A file or files containing elisp
-
-  - [[https://github.com/technomancy/better-defaults/blob/master/better-defaults.el][better-defaults]]
-
-* Emacs Package Archive
-
-  Automatic, versioned method for downloading emacs packages
-
+  - Automatically downloads emacs packages from an archive
+  - Updates installed packages
+  - Extends load-path and generates package autoloads
   - Builtin since Emacs 24
 
 * Install MELPA
