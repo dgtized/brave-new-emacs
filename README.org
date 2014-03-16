@@ -229,11 +229,21 @@
 
 * Package Development
 
-  M-x package-install-from-buffer
+  Keywords in package header
+
+  - Package-Requires :: package dependency list
+  - Version :: for specific versions
 
   [[file:not-in-load-path/github-browse-settings.el::(setq%20github-browse-file-show-line-at-point%20t][github-browse-settings]]
 
+* Example Package
+
+  M-x package-install-from-buffer
+
+  [[file:elpa][file:~/brave-new-emacs/elpa]]
+
   #+BEGIN_SRC emacs-lisp :tangle init.el
+    (package-install-file "not-in-load-path/github-browse-settings.el")
     (require 'github-browse-settings)
   #+END_SRC
 
