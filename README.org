@@ -8,35 +8,38 @@
   - Automatically installing packages
   - Example Packages
 
-* Incantations to Setup Presentation
+* Preamble
+** Install
 
-  Using Emacs 24 to follow along:
-  #+BEGIN_SRC sh
-    git clone http://github.com/dgtized/brave-new-emacs.git
-    cd brave-new-emacs
-    emacs -q README.org &
-  #+END_SRC
+   Using Emacs 24 to follow along:
+   #+BEGIN_SRC sh
+     git clone http://github.com/dgtized/brave-new-emacs.git
+     cd brave-new-emacs
+     emacs -q README.org &
+   #+END_SRC
 
-  - Ensure we are not using the default .emacs.d.
-  - Unnecessary for an actual configuration
-  - Installs presentation modes
+** Incantations to Setup Presentation
 
-  #+BEGIN_SRC emacs-lisp
-    (setq user-emacs-directory (concat (getenv "PWD") "/"))
-    (setq package-user-dir (locate-user-emacs-file "elpa"))
-    (add-to-list 'load-path user-emacs-directory t)
-    ;; From https://raw.github.com/takaxp/org-tree-slide/master/org-tree-slide.el
-    (require 'org-tree-slide)
-    (global-set-key (kbd "<f8>") 'org-tree-slide-mode)
-    (global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
-    (package-install 'epresent)
-    (global-set-key (kbd "<f7>") 'epresent-run)
-  #+END_SRC
+   - Ensure we are not using the default .emacs.d.
+   - Unnecessary for an actual configuration
+   - Installs presentation modes
 
-* Emacs
+   #+BEGIN_SRC emacs-lisp
+     (setq user-emacs-directory (concat (getenv "PWD") "/"))
+     (setq package-user-dir (locate-user-emacs-file "elpa"))
+     (add-to-list 'load-path user-emacs-directory t)
+     ;; From https://raw.github.com/takaxp/org-tree-slide/master/org-tree-slide.el
+     (require 'org-tree-slide)
+     (global-set-key (kbd "<f8>") 'org-tree-slide-mode)
+     (global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
+     (package-install 'epresent)
+     (global-set-key (kbd "<f7>") 'epresent-run)
+   #+END_SRC
+
+* Emacs Editor
   - Binary is an emacs lisp interpreter
   - Majority of functionality is written in elisp
-  - Very little distinction between user code and distribution
+  - No difference between user code and distribution
 
 * Emacs Init
   Loads [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Init-File.html][init files]] in order before giving control to user
