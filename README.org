@@ -64,7 +64,8 @@
   - [[file:/usr/share/emacs/24.3.50/lisp/subr.el.gz::(defvar%20global-map%20nil][Global]]  :: The top level binding
   - [[file:/usr/share/emacs/24.3.50/lisp/bindings.el.gz::(define-key%20ctl-x-map%20"r"%20ctl-x-r-map)][Prefix]]  :: Use prefix and dispatch to new map
   - Minimap :: Temporary mode with different bindings
-               Try C-x C-h or C-x a C-h
+
+  Try C-x C-h or C-x a C-h for binding help for prefix
 
   Keymaps are inherited or unique
 

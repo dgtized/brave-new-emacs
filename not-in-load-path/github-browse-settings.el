@@ -6,7 +6,7 @@
 ;;
 ;;; Commentary:
 ;;
-;; An example package that sets up some default bindings and settins
+;; An example package that sets up some default bindings and settings
 ;; for github-browse-file
 ;;
 ;;; Code:
