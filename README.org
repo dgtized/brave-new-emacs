@@ -226,6 +226,16 @@
     (load-theme 'zenburn t)
   #+END_SRC
 
+* Package Development
+
+  M-x package-install-from-buffer
+
+  [[file:not-in-load-path/github-browse-settings.el::(setq%20github-browse-file-show-line-at-point%20t][github-browse-settings]]
+
+  #+BEGIN_SRC emacs-lisp :tangle init.el
+    (require 'github-browse-settings)
+  #+END_SRC
+
 * Org Links
 
   Org can create links like so:
