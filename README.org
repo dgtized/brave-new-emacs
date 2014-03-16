@@ -141,12 +141,23 @@
 
    =M-x package-lisp-packages= and install [[https://github.com/technomancy/better-defaults/blob/master/better-defaults.el][better-defaults]]
 
+   | i | marks package for Install  |
+   | d | marks package for Deletion |
+   | x | eXecutes pending           |
+   | U | mark Upgrades              |
+   | u | Unmark package             |
+   | h | Help                       |
+
 ** Bare Necessities
+
+   - Stop asking yes or no, y or n suffice
+   - Find library for source of any installed library
+   - =C-x C-j= to jump to dired for current file
 
    #+BEGIN_SRC emacs-lisp :tangle init.el
      (defalias 'yes-or-no-p 'y-or-n-p)
      (define-key help-map (kbd "C-l") 'find-library)
-     (require 'dired-x) ;; C-x C-j dired-jump
+     (require 'dired-x)
    #+END_SRC
 
 ** Automatically Install Missing Packages
