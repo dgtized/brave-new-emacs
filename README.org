@@ -38,7 +38,7 @@
 * Emacs Init
   Loads [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Init-File.html][init files]] in order before giving control to user
   - Site or distribution
-  - User (~/.emacs, ~/.emacs.el or ~/.emacs.d/init.el)
+  - User (=~/.emacs=, =~/.emacs.el= or =~/.emacs.d/init.el=)
 
 * Major Mode
   - Defines how a user interacts with the editor
@@ -65,20 +65,25 @@
   - [[file:/usr/share/emacs/24.3.50/lisp/bindings.el.gz::(define-key%20ctl-x-map%20"r"%20ctl-x-r-map)][Prefix]]  :: Use prefix and dispatch to new map
   - Minimap :: Temporary mode with different bindings
 
-  Try C-x C-h or C-x a C-h for binding help for prefix
+  Try =C-x C-h= or =C-x a C-h= for binding help for prefix
 
   Keymaps are inherited or unique
 
 * Keybinding Examples
-  - C-x C-e :: Eval previous expression
-  - C-M-x :: Eval defun
-  - C-u C-M-x :: Debug defun at point
-  - TAB :: Org and Magit Toggle
-  - C-h m :: Mode specific help
-  - C-h k :: Key specific help
-  - C-h f :: Function specific help
-  - C-c C-c :: Org-mode DWIM at point
 
+  |------------+--------------------------|
+  | Keybinding | Description              |
+  |------------+--------------------------|
+  | C-x C-e    | Eval previous expression |
+  | C-M-x      | Eval defun               |
+  | C-u C-M-x  | Debug defun at point     |
+  | TAB        | Org and Magit Toggle     |
+  | C-h m      | Mode specific help       |
+  | C-h k      | Key specific help        |
+  | C-h f      | Function specific help   |
+  | C-c C-c    | Org-mode DWIM at point   |
+  |------------+--------------------------|
+  
 * Packages
 
   A file or files containing elisp
@@ -127,7 +132,7 @@
 
 * Manually Install Packages
 
-  M-x package-lisp-packages - install [[https://github.com/technomancy/better-defaults/blob/master/better-defaults.el][better-defaults]]
+  =M-x package-lisp-packages= and install [[https://github.com/technomancy/better-defaults/blob/master/better-defaults.el][better-defaults]]
 
   #+BEGIN_SRC emacs-lisp
     (menu-bar-mode t) ;; for presentation
@@ -157,7 +162,7 @@
 
 * Smex
 
-  Smart M-x, or Ido for M-x
+  Smart =M-x=, or Ido for =M-x=
 
   #+BEGIN_SRC emacs-lisp :tangle init.el
     (ensure-packages '(smex))
@@ -192,7 +197,7 @@
 
   [[https://github.com/bbatsov/projectile][projectile]] uses version control to define a project
 
-  Try C-c p C-h to see all it provides
+  Try =C-c p C-h= to see all it provides
 
   #+BEGIN_SRC emacs-lisp :tangle init.el
     (ensure-packages '(projectile))
@@ -208,8 +213,8 @@
 * Emacs Slime Navigation
 
   Quickly navigate to function at point in elisp
-  - M-. :: jump to function
-  - M-, :: return to last point
+  | M-. | jump to function     |
+  | M-, | return to last point |
 
   Eldoc is builtin and shows function arguments in minibuffer
 
@@ -238,7 +243,7 @@
 
 * Example Package
 
-  M-x package-install-from-buffer
+  =M-x package-install-from-buffer=
 
   [[file:elpa][file:~/brave-new-emacs/elpa]]
 
@@ -259,7 +264,7 @@
   C-c C-l to link in org-mode, C-c C-o to [[*Org%20Links][visit]]
 
 * Comments or Questions?
-  - C-c C-v t :: tangles init.el from this file
+  - =C-c C-v t= :: tangles init.el from this file
 
   #+BEGIN_SRC sh
     emacs -q -l init.el &
