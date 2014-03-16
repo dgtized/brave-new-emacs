@@ -1,14 +1,7 @@
 #+Title: Brave New Emacs
 #+Author: Charles Comstock <dgtized@gmail.com>
-#+EPRESENT_FRAME_LEVEL: 1
 
-* Overview
-  - Background on Init, Modes, and Keybindings
-  - Package.el and init.el
-  - Automatically installing packages
-  - Example Packages
-
-* Preamble
+* Introduction
 ** Install
 
    Using Emacs 24 to follow along:
@@ -36,62 +29,70 @@
      (global-set-key (kbd "<f7>") 'epresent-run)
    #+END_SRC
 
-* Emacs Editor
+* Init, Modes and Keybindings
+** Emacs
   - Binary is an emacs lisp interpreter
   - Majority of functionality is written in elisp
   - No difference between user code and distribution
 
-* Emacs Init
-  Loads [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Init-File.html][init files]] in order before giving control to user
-  - Site or distribution
-  - User (=~/.emacs=, =~/.emacs.el= or =~/.emacs.d/init.el=)
+** Emacs Init
+   Loads [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Init-File.html][init files]] in order before giving control to user
+   - Site or distribution
+   - User (=~/.emacs=, =~/.emacs.el= or =~/.emacs.d/init.el=)
 
-* Major Mode
-  - Defines how a user interacts with the editor
-  - Only one active at a time
+** Major Mode
+   - Defines how a user interacts with the editor
+   - Only one active at a time
 
-  Examples:
-  - org-mode
-  - emacs-lisp-mode
-  - eshell-mode
-  - minibuffer
+   Examples:
+   - org-mode
+   - emacs-lisp-mode
+   - eshell-mode
+   - minibuffer
 
-* Minor Modes
-  As many as you want
+** Minor Modes
+   As many as you want
 
-  Examples:
-  - column-number-mode
-  - visual-line-mode
-  - flyspell-mode
-  - transient-mark-mode
-  - show-paren-mode
+   Examples:
+   - column-number-mode
+   - visual-line-mode
+   - flyspell-mode
+   - transient-mark-mode
+   - show-paren-mode
 
-* Keybindings
-  - [[file:/usr/share/emacs/24.3.50/lisp/subr.el.gz::(defvar%20global-map%20nil][Global]]  :: The top level binding
-  - [[file:/usr/share/emacs/24.3.50/lisp/bindings.el.gz::(define-key%20ctl-x-map%20"r"%20ctl-x-r-map)][Prefix]]  :: Use prefix and dispatch to new map
-  - Minimap :: Temporary mode with different bindings
+** Keybindings
+   - [[file:/usr/share/emacs/24.3.50/lisp/subr.el.gz::(defvar%20global-map%20nil][Global]]  :: The top level binding
+   - [[file:/usr/share/emacs/24.3.50/lisp/bindings.el.gz::(define-key%20ctl-x-map%20"r"%20ctl-x-r-map)][Prefix]]  :: Use prefix and dispatch to new map
+   - Minimap :: Temporary mode with different bindings
 
-  Try =C-x C-h= or =C-x a C-h= for binding help for prefix
+   Try =C-x C-h= or =C-x a C-h= for binding help for prefix
 
-  Keymaps are inherited or unique
+   Keymaps are inherited or unique
 
-* Keybinding Examples
+** Keybinding Examples
 
-  |------------+--------------------------|
-  | Keybinding | Description              |
-  |------------+--------------------------|
-  | C-x C-e    | Eval previous expression |
-  | C-M-x      | Eval defun               |
-  | C-u C-M-x  | Debug defun at point     |
-  | TAB        | Org and Magit Toggle     |
-  | C-h m      | Mode specific help       |
-  | C-h k      | Key specific help        |
-  | C-h f      | Function specific help   |
-  | C-c C-c    | Org-mode DWIM at point   |
-  |------------+--------------------------|
-  
-* Packages
+   |------------+--------------------------|
+   | Keybinding | Description              |
+   |------------+--------------------------|
+   | C-x C-e    | Eval previous expression |
+   | C-M-x      | Eval defun               |
+   | C-u C-M-x  | Debug defun at point     |
+   | TAB        | Org and Magit Toggle     |
+   | C-h m      | Mode specific help       |
+   | C-h k      | Key specific help        |
+   | C-h f      | Function specific help   |
+   | C-c C-c    | Org-mode DWIM at point   |
+   |------------+--------------------------|
 
+** Hooks and defadvice
+
+   - Hooks are callbacks to run a list of functions 
+     =add-hook=, =remove-hook=, =run-hooks=
+   - devadvice is aspect oriented programming
+   - Both can be used to extend existing functionality
+   
+* Libraries and Packages
+** Library
   A file or files containing elisp
   
   - [[file:/usr/share/emacs/24.3.50/lisp/rot13.el.gz::(provide%20'rot13)][rot13]] :: decrypt rot13 library/mode
@@ -99,179 +100,172 @@
   - [[file:/usr/share/emacs/24.3.50/lisp/simple.el.gz::%3B%3B%3B%20simple.el%20---%20basic%20editing%20commands%20for%20Emacs%20-*-%20lexical-binding:%20t%20-*-][simple]] :: the basic editor commands
   - isearch, linum, byte-compiler, interpeter, edebug, menu
 
-* Load, Require and Autoload
-** Load
-   : (load "/path/to/library")
-   Always executes
-** Provide
-   : (provide 'foo)
-   Names a files code 'foo
-** Require
-   : (require 'foo)
-   Conditionally load 'foo from load-path
-** Autoload
-   : (autoload 'foo-func 'foo)
-   Requires 'foo if 'foo-func is used
+** Load, Require and Autoload
+*** Load
+    : (load "/path/to/library")
+    Always executes
+*** Provide
+    : (provide 'foo)
+    Names a files code 'foo
+*** Require
+    : (require 'foo)
+    Conditionally load 'foo from load-path
+*** Autoload
+    : (autoload 'foo-func 'foo)
+    Requires 'foo if 'foo-func is used
 
-* Package.el
+** Package.el
 
-  - Automatically downloads emacs packages from an archive
-  - Updates installed packages
-  - Extends load-path and generates package autoloads
-  - Builtin since Emacs 24
+   - Automatically downloads emacs packages from an archive
+   - Updates installed packages
+   - Extends load-path and generates package autoloads
+   - Builtin since Emacs 24
 
-* Install MELPA
-  - Melpa :: Milkypostman's Emacs Lisp Package Archive
-             latest and bleeding edge
-  - Marmalade :: Spreadable Elisp
-                 versioned and recent
-  - ELPA :: Emacs Lisp Package Archive
-            Hosted at GNU Savannah, FSF-GPL only
+** Package Archives
+   - Melpa :: Milkypostman's Emacs Lisp Package Archive
+              latest and bleeding edge
+   - Marmalade :: Spreadable Elisp
+                  versioned and recent
+   - ELPA :: Emacs Lisp Package Archive
+             Hosted at GNU Savannah, FSF-GPL only
 
-  #+BEGIN_SRC emacs-lisp :tangle init.el
-    (require 'package)
-    (add-to-list
-     'package-archives
-     '("melpa" . "http://melpa.milkbox.net/packages/"))
-    (package-initialize)
-  #+END_SRC
+   #+BEGIN_SRC emacs-lisp :tangle init.el
+     (require 'package)
+     (add-to-list
+      'package-archives
+      '("melpa" . "http://melpa.milkbox.net/packages/"))
+     (package-initialize)
+   #+END_SRC
 
-* Manually Install Packages
+** Manually Install Packages
 
-  =M-x package-lisp-packages= and install [[https://github.com/technomancy/better-defaults/blob/master/better-defaults.el][better-defaults]]
+   =M-x package-lisp-packages= and install [[https://github.com/technomancy/better-defaults/blob/master/better-defaults.el][better-defaults]]
 
-  #+BEGIN_SRC emacs-lisp
-    (menu-bar-mode t) ;; for presentation
-  #+END_SRC
+** Bare Necessities
 
-  #+BEGIN_SRC emacs-lisp :tangle init.el
-    (defalias 'yes-or-no-p 'y-or-n-p)
-    (define-key help-map (kbd "C-l") 'find-library)
-    (require 'dired-x) ;; C-x C-j dired-jump
-  #+END_SRC
+   #+BEGIN_SRC emacs-lisp :tangle init.el
+     (defalias 'yes-or-no-p 'y-or-n-p)
+     (define-key help-map (kbd "C-l") 'find-library)
+     (require 'dired-x) ;; C-x C-j dired-jump
+   #+END_SRC
 
-* Automatically Install Missing Packages
+** Automatically Install Missing Packages
 
-  Just copy your init.el file and start emacs
+   Just copy your init.el file and start emacs
 
-  #+BEGIN_SRC emacs-lisp :tangle init.el
-    (defun ensure-packages (package-list)
-      "Ensures packages in list are installed locally"
-      (unless (file-exists-p package-user-dir)
-        (package-refresh-contents))
-      (dolist (package package-list)
-        (unless (package-installed-p package)
-          (package-install package))))
-    
-    (ensure-packages '(better-defaults))
-  #+END_SRC
+   #+BEGIN_SRC emacs-lisp :tangle init.el
+     (defun ensure-packages (package-list)
+       "Ensures packages in list are installed locally"
+       (unless (file-exists-p package-user-dir)
+         (package-refresh-contents))
+       (dolist (package package-list)
+         (unless (package-installed-p package)
+           (package-install package))))
+     
+     (ensure-packages '(better-defaults))
+   #+END_SRC
 
-* Smex
+** Package Development
 
-  Smart =M-x=, or Ido for =M-x=
+   Keywords in package header
 
-  #+BEGIN_SRC emacs-lisp :tangle init.el
-    (ensure-packages '(smex))
-    (global-set-key (kbd "C-x C-m") 'smex)
-  #+END_SRC
+   - Package-Requires :: package dependency list
+   - Version :: for specific versions
 
-* Ace Jump Mode
+   [[file:not-in-load-path/github-browse-settings.el::(setq%20github-browse-file-show-line-at-point%20t][github-browse-settings]]
 
-  Faster than a speeding mouse!
+** Example Package
 
-  #+BEGIN_SRC emacs-lisp :tangle init.el
-    (ensure-packages '(ace-jump-mode))
-    (global-set-key (kbd "C-;")
-                    'ace-jump-mode)
-    (global-set-key (kbd "C-M-;") 
-                    'ace-jump-mode-pop-mark)
-  #+END_SRC
+   =M-x package-install-from-buffer=
 
-* Magit
+   [[file:elpa][file:~/brave-new-emacs/elpa]]
 
-  [[https://github.com/magit/magit][magit]] is friends with git
+   #+BEGIN_SRC emacs-lisp :tangle init.el
+     (package-install-file "not-in-load-path/github-browse-settings.el")
+     (require 'github-browse-settings)
+   #+END_SRC
 
-  #+BEGIN_SRC emacs-lisp :tangle init.el
-    (ensure-packages '(magit))
-    (global-set-key (kbd "C-x g") 'magit-status)
-  #+END_SRC
+* Useful Packages
+** Smex
 
-  - magit-blame-mode :: Inline blame mode
-  - magit-file-log :: Show git log for file
+   Smart =M-x=, or Ido for =M-x=
 
-* Projectile
+   #+BEGIN_SRC emacs-lisp :tangle init.el
+     (ensure-packages '(smex))
+     (global-set-key (kbd "C-x C-m") 'smex)
+   #+END_SRC
 
-  [[https://github.com/bbatsov/projectile][projectile]] uses version control to define a project
+** Ace Jump Mode
 
-  Try =C-c p C-h= to see all it provides
+   Faster than a speeding mouse!
 
-  #+BEGIN_SRC emacs-lisp :tangle init.el
-    (ensure-packages '(projectile))
-    (projectile-global-mode)
-  #+END_SRC
+   #+BEGIN_SRC emacs-lisp :tangle init.el
+     (ensure-packages '(ace-jump-mode))
+     (global-set-key (kbd "C-;")
+                     'ace-jump-mode)
+     (global-set-key (kbd "C-M-;") 
+                     'ace-jump-mode-pop-mark)
+   #+END_SRC
 
-* Hooks and defadvice
+** Magit
 
-  - Hooks are callbacks to run a list of functions
-  - devadvice is aspect oriented programming
-  - Both can be used to extend existing functionality
+   [[https://github.com/magit/magit][magit]] is friends with git
 
-* Emacs Slime Navigation
+   #+BEGIN_SRC emacs-lisp :tangle init.el
+     (ensure-packages '(magit))
+     (global-set-key (kbd "C-x g") 'magit-status)
+   #+END_SRC
 
-  Quickly navigate to function at point in elisp
-  | M-. | jump to function     |
-  | M-, | return to last point |
+   - magit-blame-mode :: Inline blame mode
+   - magit-file-log :: Show git log for file
 
-  Eldoc is builtin and shows function arguments in minibuffer
+** Projectile
 
-  #+BEGIN_SRC emacs-lisp :tangle init.el
-    (ensure-packages '(elisp-slime-nav))
-    (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
-      (add-hook hook 'turn-on-elisp-slime-nav-mode)
-      (add-hook hook 'turn-on-eldoc-mode))
-  #+END_SRC
+   [[https://github.com/bbatsov/projectile][projectile]] uses version control to define a project
 
-* Themes!
+   Try =C-c p C-h= to see all it provides
 
-  #+BEGIN_SRC emacs-lisp :tangle init.el
-    (ensure-packages '(zenburn-theme))
-    (load-theme 'zenburn t)
-  #+END_SRC
+   #+BEGIN_SRC emacs-lisp :tangle init.el
+     (ensure-packages '(projectile))
+     (projectile-global-mode)
+   #+END_SRC
 
-* Package Development
+** Emacs Slime Navigation
 
-  Keywords in package header
+   Quickly navigate to function at point in elisp
+   | M-. | jump to function     |
+   | M-, | return to last point |
 
-  - Package-Requires :: package dependency list
-  - Version :: for specific versions
+   Eldoc is builtin and shows function arguments in minibuffer
 
-  [[file:not-in-load-path/github-browse-settings.el::(setq%20github-browse-file-show-line-at-point%20t][github-browse-settings]]
+   #+BEGIN_SRC emacs-lisp :tangle init.el
+     (ensure-packages '(elisp-slime-nav))
+     (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
+       (add-hook hook 'turn-on-elisp-slime-nav-mode)
+       (add-hook hook 'turn-on-eldoc-mode))
+   #+END_SRC
 
-* Example Package
+** Themes!
 
-  =M-x package-install-from-buffer=
+   #+BEGIN_SRC emacs-lisp :tangle init.el
+     (ensure-packages '(zenburn-theme))
+     (load-theme 'zenburn t)
+   #+END_SRC
+** Org Links
 
-  [[file:elpa][file:~/brave-new-emacs/elpa]]
+   Org can create links like so:
+   : [[href][name]]
 
-  #+BEGIN_SRC emacs-lisp :tangle init.el
-    (package-install-file "not-in-load-path/github-browse-settings.el")
-    (require 'github-browse-settings)
-  #+END_SRC
+   #+BEGIN_SRC emacs-lisp :tangle init.el
+     (global-set-key (kbd "C-c l") 'org-store-link)
+   #+END_SRC
 
-* Org Links
+   C-c C-l to link in org-mode, C-c C-o to [[*Org%20Links][visit]]
 
-  Org can create links like so:
-  : [[href][name]]
-
-  #+BEGIN_SRC emacs-lisp :tangle init.el
-    (global-set-key (kbd "C-c l") 'org-store-link)
-  #+END_SRC
-
-  C-c C-l to link in org-mode, C-c C-o to [[*Org%20Links][visit]]
-
-* Comments or Questions?
+* Demo
   - =C-c C-v t= :: tangles init.el from this file
 
   #+BEGIN_SRC sh
     emacs -q -l init.el &
   #+END_SRC
+* Questions or Comments?
