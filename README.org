@@ -21,7 +21,7 @@
   - Unnecessary for an actual configuration
 
   #+BEGIN_SRC emacs-lisp
-    (setq user-emacs-directory (getenv "PWD"))
+    (setq user-emacs-directory (concat (getenv "PWD") "/"))
     (setq package-user-dir (locate-user-emacs-file "elpa"))
     (add-to-list 'load-path user-emacs-directory t)
     ;; From https://raw.github.com/takaxp/org-tree-slide/master/org-tree-slide.el
