@@ -19,6 +19,7 @@
 
   - Ensure we are not using the default .emacs.d.
   - Unnecessary for an actual configuration
+  - Installs presentation modes
 
   #+BEGIN_SRC emacs-lisp
     (setq user-emacs-directory (concat (getenv "PWD") "/"))
@@ -28,6 +29,8 @@
     (require 'org-tree-slide)
     (global-set-key (kbd "<f8>") 'org-tree-slide-mode)
     (global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
+    (package-install 'epresent)
+    (global-set-key (kbd "<f7>") 'epresent-run)
   #+END_SRC
 
 * Emacs
