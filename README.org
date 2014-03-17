@@ -105,6 +105,18 @@
      =around=, =before=, =after= on any function
    - For extending existing functionality
    
+** Bare Necessities
+
+   - Stop asking yes or no, y or n suffice
+   - Find library for source of any installed library
+   - =C-x C-j= to jump to dired for current file
+
+   #+BEGIN_SRC emacs-lisp :tangle init.el :results silent
+     (defalias 'yes-or-no-p 'y-or-n-p)
+     (define-key help-map (kbd "C-l") 'find-library)
+     (require 'dired-x)
+   #+END_SRC
+
 * Libraries and Packages
 ** Library
 
@@ -163,18 +175,6 @@
    | U | mark Upgrades              |
    | u | Unmark package             |
    | h | Help                       |
-
-** Bare Necessities
-
-   - Stop asking yes or no, y or n suffice
-   - Find library for source of any installed library
-   - =C-x C-j= to jump to dired for current file
-
-   #+BEGIN_SRC emacs-lisp :tangle init.el :results silent
-     (defalias 'yes-or-no-p 'y-or-n-p)
-     (define-key help-map (kbd "C-l") 'find-library)
-     (require 'dired-x)
-   #+END_SRC
 
 ** Automatically Install Missing Packages
 
