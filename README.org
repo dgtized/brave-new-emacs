@@ -127,19 +127,17 @@
   - [[file:/usr/share/emacs/24.3.50/lisp/simple.el.gz::%3B%3B%3B%20simple.el%20---%20basic%20editing%20commands%20for%20Emacs%20-*-%20lexical-binding:%20t%20-*-][simple]] :: the basic editor commands
   - isearch, linum, byte-compiler, interpeter, edebug, menu
 
-** Load, Require and Autoload
-*** Load
-    : (load "/path/to/library")
-    Always executes
-*** Provide
-    : (provide 'foo)
-    Names a files code 'foo
-*** Require
-    : (require 'foo)
-    Conditionally load 'foo from load-path
-*** Autoload
-    : (autoload 'foo-func 'foo)
-    Requires 'foo if 'foo-func is used
+** Load Path
+
+   Where to look for libraries and when to load
+    - Load :: Always executes
+      : (load "/path/to/library")
+    - Provide :: Names a files code 'foo
+      : (provide 'foo)
+    - Require :: Conditionally load 'foo from =load-path=
+      : (require 'foo)
+    - Autoload :: Requires 'foo if 'foo-func is used
+      : (autoload 'foo-func 'foo)
 
 ** Package.el
 
