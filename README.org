@@ -4,10 +4,9 @@
 #+EPRESENT_FRAME_LEVEL: 2
 
 * Preamble
-** Install
+** Instructions
 
-   Using Emacs 24 to follow along:
-
+   To follow along locally using Emacs 24;
    #+BEGIN_SRC sh
      git clone http://github.com/dgtized/brave-new-emacs.git
      cd brave-new-emacs
