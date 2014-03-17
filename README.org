@@ -1,10 +1,13 @@
 #+Title: Brave New Emacs
 #+Author: Charles Comstock <dgtized@gmail.com>
+#+Date: 3/17/2013
+#+EPRESENT_FRAME_LEVEL: 2
 
-* Introduction
+* Preamble
 ** Install
 
    Using Emacs 24 to follow along:
+
    #+BEGIN_SRC sh
      git clone http://github.com/dgtized/brave-new-emacs.git
      cd brave-new-emacs
@@ -279,4 +282,5 @@
   #+BEGIN_SRC sh
     emacs -q -l init.el &
   #+END_SRC
+
 * Questions or Comments?
