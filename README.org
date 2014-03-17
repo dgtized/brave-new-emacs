@@ -44,8 +44,8 @@
 
    Startup loads [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Init-File.html][init files]] prior to giving control to user
    1. [[file:/usr/share/emacs/24.3.50/lisp/loadup.el::%3B%3B%3B%20loadup.el%20---%20load%20up%20standardly%20loaded%20Lisp%20files%20for%20Emacs][loadup.el]] system libraries
-   3. Site or distribution
-   4. User (=~/.emacs=, =~/.emacs.el= or =~/.emacs.d/init.el=)
+   2. Site or distribution
+   3. User (=~/.emacs=, =~/.emacs.el= or =~/.emacs.d/init.el=)
 
 ** Major Mode
 
