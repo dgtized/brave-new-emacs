@@ -31,6 +31,8 @@
      ;; From https://raw.github.com/eschulte/epresent/master/epresent.el
      (require 'epresent)
      (global-set-key (kbd "<f7>") 'epresent-run)
+     ;; Disable prompting to evaluate babel blocks
+     (setq org-confirm-babel-evaluate nil)
    #+END_SRC
 
 * Init, Modes and Keybindings
