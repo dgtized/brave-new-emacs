@@ -20,7 +20,7 @@
    - Unnecessary for an actual configuration
    - Installs presentation modes
 
-   #+BEGIN_SRC emacs-lisp
+   #+BEGIN_SRC emacs-lisp :results silent
      (setq user-emacs-directory (concat (getenv "PWD") "/"))
      (setq package-user-dir (locate-user-emacs-file "elpa"))
      (add-to-list 'load-path user-emacs-directory t)
@@ -132,7 +132,7 @@
    - ELPA :: Emacs Lisp Package Archive
              Hosted at GNU Savannah, FSF-GPL only
 
-   #+BEGIN_SRC emacs-lisp :tangle init.el
+   #+BEGIN_SRC emacs-lisp :tangle init.el :results silent
      (require 'package)
      (add-to-list
       'package-archives
@@ -157,7 +157,7 @@
    - Find library for source of any installed library
    - =C-x C-j= to jump to dired for current file
 
-   #+BEGIN_SRC emacs-lisp :tangle init.el
+   #+BEGIN_SRC emacs-lisp :tangle init.el :results silent
      (defalias 'yes-or-no-p 'y-or-n-p)
      (define-key help-map (kbd "C-l") 'find-library)
      (require 'dired-x)
@@ -167,7 +167,7 @@
 
    Just copy your init.el file and start emacs
 
-   #+BEGIN_SRC emacs-lisp :tangle init.el
+   #+BEGIN_SRC emacs-lisp :tangle init.el :results silent
      (defun ensure-packages (package-list)
        "Ensures packages in list are installed locally"
        (unless (file-exists-p package-user-dir)
@@ -194,7 +194,7 @@
 
    [[file:elpa][file:~/brave-new-emacs/elpa]]
 
-   #+BEGIN_SRC emacs-lisp :tangle init.el
+   #+BEGIN_SRC emacs-lisp :tangle init.el :results silent
      (package-install-file "not-in-load-path/github-browse-settings.el")
      (require 'github-browse-settings)
    #+END_SRC
@@ -204,7 +204,7 @@
 
    Smart =M-x=, or Ido for =M-x=
 
-   #+BEGIN_SRC emacs-lisp :tangle init.el
+   #+BEGIN_SRC emacs-lisp :tangle init.el :results silent
      (ensure-packages '(smex))
      (global-set-key (kbd "C-x C-m") 'smex)
    #+END_SRC
@@ -213,7 +213,7 @@
 
    Faster than a speeding mouse!
 
-   #+BEGIN_SRC emacs-lisp :tangle init.el
+   #+BEGIN_SRC emacs-lisp :tangle init.el :results silent
      (ensure-packages '(ace-jump-mode))
      (global-set-key (kbd "C-;")
                      'ace-jump-mode)
@@ -225,7 +225,7 @@
 
    [[https://github.com/magit/magit][magit]] is friends with git
 
-   #+BEGIN_SRC emacs-lisp :tangle init.el
+   #+BEGIN_SRC emacs-lisp :tangle init.el :results silent
      (ensure-packages '(magit))
      (global-set-key (kbd "C-x g") 'magit-status)
    #+END_SRC
@@ -239,7 +239,7 @@
 
    Try =C-c p C-h= to see all it provides
 
-   #+BEGIN_SRC emacs-lisp :tangle init.el
+   #+BEGIN_SRC emacs-lisp :tangle init.el :results silent
      (ensure-packages '(projectile))
      (projectile-global-mode)
    #+END_SRC
@@ -252,7 +252,7 @@
 
    Eldoc is builtin and shows function arguments in minibuffer
 
-   #+BEGIN_SRC emacs-lisp :tangle init.el
+   #+BEGIN_SRC emacs-lisp :tangle init.el :results silent
      (ensure-packages '(elisp-slime-nav))
      (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
        (add-hook hook 'turn-on-elisp-slime-nav-mode)
@@ -261,7 +261,7 @@
 
 ** Themes!
 
-   #+BEGIN_SRC emacs-lisp :tangle init.el
+   #+BEGIN_SRC emacs-lisp :tangle init.el :results silent
      (ensure-packages '(zenburn-theme))
      (load-theme 'zenburn t)
    #+END_SRC
@@ -270,7 +270,7 @@
    Org can create links like so:
    : [[href][name]]
 
-   #+BEGIN_SRC emacs-lisp :tangle init.el
+   #+BEGIN_SRC emacs-lisp :tangle init.el :results silent
      (global-set-key (kbd "C-c l") 'org-store-link)
    #+END_SRC
 
