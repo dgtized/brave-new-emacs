@@ -28,7 +28,8 @@
      (require 'org-tree-slide)
      (global-set-key (kbd "<f8>") 'org-tree-slide-mode)
      (global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
-     (package-install 'epresent)
+     ;; From https://raw.github.com/eschulte/epresent/master/epresent.el
+     (require 'epresent)
      (global-set-key (kbd "<f7>") 'epresent-run)
    #+END_SRC
 
