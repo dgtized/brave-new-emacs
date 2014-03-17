@@ -35,6 +35,7 @@
 
 * Init, Modes and Keybindings
 ** Emacs
+
   - Binary is an emacs lisp interpreter
   - Majority of functionality is written in elisp
   - No difference between user code and distribution
@@ -45,6 +46,7 @@
    - User (=~/.emacs=, =~/.emacs.el= or =~/.emacs.d/init.el=)
 
 ** Major Mode
+
    - Defines how a user interacts with the editor
      syntax tables, derived modes, keybindings, menus
    - Only one active at a time
@@ -56,6 +58,7 @@
    - minibuffer
 
 ** Minor Modes
+
    As many as you want
 
    Examples:
@@ -66,6 +69,7 @@
    - show-paren-mode
 
 ** Keybindings
+
    - [[file:/usr/share/emacs/24.3.50/lisp/subr.el.gz::(defvar%20global-map%20nil][Global]]  :: The top level binding
    - [[file:/usr/share/emacs/24.3.50/lisp/bindings.el.gz::(define-key%20ctl-x-map%20"r"%20ctl-x-r-map)][Prefix]]  :: Use prefix and dispatch to new map
    - Minimap :: Temporary mode with different bindings
@@ -101,6 +105,7 @@
    
 * Libraries and Packages
 ** Library
+
   A file or files containing elisp
   
   - [[file:/usr/share/emacs/24.3.50/lisp/rot13.el.gz::(provide%20'rot13)][rot13]] :: decrypt rot13 library/mode
@@ -126,10 +131,11 @@
 
    - Automatically downloads emacs packages from an archive
    - Updates installed packages
-   - Extends load-path and generates package autoloads
+   - Extends =load-path= and generates package autoloads
    - Builtin since Emacs 24
 
 ** Package Archives
+
    - Melpa :: Milkypostman's Emacs Lisp Package Archive
               latest and bleeding edge
    - Marmalade :: Spreadable Elisp
@@ -266,10 +272,13 @@
 
 ** Themes!
 
+   Zenburn is a nice dark theme
+
    #+BEGIN_SRC emacs-lisp :tangle init.el :results silent
      (ensure-packages '(zenburn-theme))
      (load-theme 'zenburn t)
    #+END_SRC
+
 ** Org Links
 
    Org can create links like so:
@@ -282,8 +291,10 @@
    C-c C-l to link in org-mode, C-c C-o to [[*Org%20Links][visit]]
 
 * Demo
-  - =C-c C-v t= :: tangles init.el from this file
 
+  Type =C-c C-v t= to generate =init.el= from this file.
+
+  At the terminal:
   #+BEGIN_SRC sh
     emacs -q -l init.el &
   #+END_SRC
