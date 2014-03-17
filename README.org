@@ -46,6 +46,7 @@
 
 ** Major Mode
    - Defines how a user interacts with the editor
+     syntax tables, derived modes, keybindings, menus
    - Only one active at a time
 
    Examples:
@@ -84,6 +85,7 @@
    | TAB        | Org and Magit Toggle     |
    | C-h m      | Mode specific help       |
    | C-h k      | Key specific help        |
+   | C-h b      | List all bindings        |
    | C-h f      | Function specific help   |
    | C-c C-c    | Org-mode DWIM at point   |
    |------------+--------------------------|
@@ -92,8 +94,10 @@
 
    - Hooks are callbacks to run a list of functions 
      =add-hook=, =remove-hook=, =run-hooks=
-   - devadvice is aspect oriented programming
-   - Both can be used to extend existing functionality
+     Examples: =org-mode-hook=, =prog-mode-hook=
+   - =devadvice= for aspect oriented programming
+     =around=, =before=, =after= on any function
+   - For extending existing functionality
    
 * Libraries and Packages
 ** Library
@@ -200,7 +204,7 @@
      (require 'github-browse-settings)
    #+END_SRC
 
-* Useful Packages
+* Useful Extensions
 ** Smex
 
    Smart =M-x=, or Ido for =M-x=
