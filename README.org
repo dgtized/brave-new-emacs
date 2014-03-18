@@ -12,27 +12,35 @@
      cd brave-new-emacs
      emacs -q README.org &
    #+END_SRC
-
+   
 ** Incantations to Setup Presentation
 
    - Ensure we are not using the default .emacs.d.
    - Unnecessary for an actual configuration
-   - Installs presentation modes
+   - Installs presentation mode to start on =F7=
 
    #+BEGIN_SRC emacs-lisp :results silent
      ;; Type C-c C-c inside this block to install presentation modes
      (setq user-emacs-directory (concat (getenv "PWD") "/"))
      (setq package-user-dir (locate-user-emacs-file "elpa"))
      (add-to-list 'load-path user-emacs-directory t)
-     ;; From https://raw.github.com/takaxp/org-tree-slide/master/org-tree-slide.el
-     (require 'org-tree-slide)
-     (global-set-key (kbd "<f8>") 'org-tree-slide-mode)
-     (global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
      ;; From https://raw.github.com/eschulte/epresent/master/epresent.el
      (require 'epresent)
      (global-set-key (kbd "<f7>") 'epresent-run)
      ;; Disable prompting to evaluate babel blocks
      (setq org-confirm-babel-evaluate nil)
+   #+END_SRC
+   
+** Alternate Presentation Mode
+
+   - [[https://github.com/eschulte/epresent][Epresent]] is prettier, and recommended
+   - [[https://github.com/takaxp/org-tree-slide][org-tree-slide]] is less invasive, installed on =F8=
+
+   #+BEGIN_SRC emacs-lisp :results silent
+     ;; From https://raw.github.com/takaxp/org-tree-slide/master/org-tree-slide.el
+     (require 'org-tree-slide)
+     (global-set-key (kbd "<f8>") 'org-tree-slide-mode)
+     (global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
    #+END_SRC
 
 * Init, Modes and Keybindings
