@@ -109,7 +109,7 @@
 ** Bare Necessities
 
    - Stop asking yes or no, y or n suffice
-   - Find library for source of any installed library
+   - Find library source for any installed library
    - =C-x C-j= to jump to dired for current file
 
    #+BEGIN_SRC emacs-lisp :tangle init.el :results silent
