@@ -17,10 +17,10 @@
 
    - Ensure we are not using the default .emacs.d.
    - Unnecessary for an actual configuration
-   - Installs presentation mode to start on =F7=
+   - Type =C-c C-c= in =BEGIN_SRC= block below to install
+   - Press =F7= to start presentation mode
 
    #+BEGIN_SRC emacs-lisp :results silent
-     ;; Type C-c C-c inside this block to install presentation modes
      (setq user-emacs-directory (concat (getenv "PWD") "/"))
      (setq package-user-dir (locate-user-emacs-file "elpa"))
      (add-to-list 'load-path user-emacs-directory t)
