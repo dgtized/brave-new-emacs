@@ -166,7 +166,7 @@
 
 ** Manually Install Packages
 
-   =M-x package-lisp-packages= and install [[https://github.com/technomancy/better-defaults/blob/master/better-defaults.el][better-defaults]]
+   =M-x package-list-packages= and install [[https://github.com/technomancy/better-defaults/blob/master/better-defaults.el][better-defaults]]
 
    | i | marks package for Install  |
    | d | marks package for Deletion |
