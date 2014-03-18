@@ -102,7 +102,7 @@
    - Hooks are callbacks to run a list of functions 
      =add-hook=, =remove-hook=, =run-hooks=
      Examples: =org-mode-hook=, =prog-mode-hook=
-   - =devadvice= for aspect oriented programming
+   - =defadvice= for aspect oriented programming
      =around=, =before=, =after= on any function
    - For extending existing functionality
    
