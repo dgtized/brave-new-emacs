@@ -229,6 +229,7 @@
    #+BEGIN_SRC emacs-lisp :tangle init.el :results silent
      (ensure-packages '(smex))
      (global-set-key (kbd "C-x C-m") 'smex)
+     (global-set-key (kbd "C-c C-m") 'smex-major-mode-commands)
    #+END_SRC
 
 ** Ace Jump Mode
@@ -237,10 +238,8 @@
 
    #+BEGIN_SRC emacs-lisp :tangle init.el :results silent
      (ensure-packages '(ace-jump-mode))
-     (global-set-key (kbd "C-;")
-                     'ace-jump-mode)
-     (global-set-key (kbd "C-M-;") 
-                     'ace-jump-mode-pop-mark)
+     (global-set-key (kbd "C-;") 'ace-jump-mode)
+     (global-set-key (kbd "C-M-;") 'ace-jump-mode-pop-mark)
    #+END_SRC
 
 ** Magit
