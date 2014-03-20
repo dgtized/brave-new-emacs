@@ -309,4 +309,6 @@
     emacs -q -l init.el &
   #+END_SRC
 
+  Use C-c ' to edit =BEGIN_SRC= blocks in their own major mode
+
 * Questions or Comments?
