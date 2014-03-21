@@ -298,7 +298,7 @@
      (global-set-key (kbd "C-c l") 'org-store-link)
    #+END_SRC
 
-   C-c C-l to link in org-mode, C-c C-o to [[*Org%20Links][visit]]
+   =C-c C-l= to link in org-mode, =C-c C-o= to [[*Org%20Links][visit]]
 
 * Demo
 
