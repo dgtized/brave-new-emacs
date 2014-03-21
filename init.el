@@ -24,12 +24,11 @@
 
 (ensure-packages '(smex))
 (global-set-key (kbd "C-x C-m") 'smex)
+(global-set-key (kbd "C-c C-m") 'smex-major-mode-commands)
 
 (ensure-packages '(ace-jump-mode))
-(global-set-key (kbd "C-;")
-                'ace-jump-mode)
-(global-set-key (kbd "C-M-;") 
-                'ace-jump-mode-pop-mark)
+(global-set-key (kbd "C-;") 'ace-jump-mode)
+(global-set-key (kbd "C-M-;") 'ace-jump-mode-pop-mark)
 
 (ensure-packages '(magit))
 (global-set-key (kbd "C-x g") 'magit-status)
