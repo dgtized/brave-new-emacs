@@ -212,10 +212,14 @@
 
 ** Example Package
 
-   =M-x package-install-from-buffer=
+   =M-x package-install-from-file=
+   =not-in-load-path/github-browse-settings.el=
 
-   [[file:elpa][file:~/brave-new-emacs/elpa]]
+   Package is now installed in [[file:elpa][package-user-dir]]
 
+   For development try =package-install-from-buffer=
+
+   To run this automatically;
    #+BEGIN_SRC emacs-lisp :tangle init.el :results silent
      (package-install-file "not-in-load-path/github-browse-settings.el")
      (require 'github-browse-settings)
