@@ -19,7 +19,7 @@
    - Ensure we are not using the default .emacs.d.
    - Unnecessary for an actual configuration
    - Type =C-c C-c= in =BEGIN_SRC= block below to install
-   - Press =F7= to start presentation mode
+   - Press =F7= to start/resume presentation mode (=q= to quit)
 
    #+BEGIN_SRC emacs-lisp :results silent
      (setq user-emacs-directory (concat (getenv "PWD") "/"))
