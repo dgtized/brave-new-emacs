@@ -236,14 +236,14 @@
      (global-set-key (kbd "C-c C-m") 'smex-major-mode-commands)
    #+END_SRC
 
-** Ace Jump Mode
+** Avy / Ace Jump Mode
 
    Faster than a speeding mouse!
 
    #+BEGIN_SRC emacs-lisp :tangle init.el :results silent
-     (ensure-packages '(ace-jump-mode))
-     (global-set-key (kbd "C-;") 'ace-jump-mode)
-     (global-set-key (kbd "C-M-;") 'ace-jump-mode-pop-mark)
+     (ensure-packages '(avy))
+     (global-set-key (kbd "C-'") 'avy-goto-word--or-subword-1)
+     (global-set-key (kbd "C-M-'") 'avy-pop-mark)
    #+END_SRC
 
 ** Magit

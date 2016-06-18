@@ -1,4 +1,3 @@
-
 (defalias 'yes-or-no-p 'y-or-n-p)
 (define-key help-map (kbd "C-l") 'find-library)
 (require 'dired-x)
@@ -26,9 +25,9 @@
 (global-set-key (kbd "C-x C-m") 'smex)
 (global-set-key (kbd "C-c C-m") 'smex-major-mode-commands)
 
-(ensure-packages '(ace-jump-mode))
-(global-set-key (kbd "C-;") 'ace-jump-mode)
-(global-set-key (kbd "C-M-;") 'ace-jump-mode-pop-mark)
+(ensure-packages '(avy))
+(global-set-key (kbd "C-'") 'avy-goto-word--or-subword-1)
+(global-set-key (kbd "C-M-'") 'avy-pop-mark)
 
 (ensure-packages '(magit))
 (global-set-key (kbd "C-x g") 'magit-status)
