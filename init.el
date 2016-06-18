@@ -24,6 +24,8 @@
 (ensure-packages '(smex))
 (global-set-key (kbd "C-x C-m") 'smex)
 (global-set-key (kbd "C-c C-m") 'smex-major-mode-commands)
+(setq avy-background t
+      avy-style 'at-full)
 
 (ensure-packages '(avy))
 (global-set-key (kbd "C-;") 'avy-goto-word-or-subword-1)

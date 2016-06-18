@@ -234,6 +234,8 @@
      (ensure-packages '(smex))
      (global-set-key (kbd "C-x C-m") 'smex)
      (global-set-key (kbd "C-c C-m") 'smex-major-mode-commands)
+     (setq avy-background t
+           avy-style 'at-full)
    #+END_SRC
 
 ** Avy / Ace Jump Mode
