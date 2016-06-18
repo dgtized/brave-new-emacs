@@ -242,8 +242,8 @@
 
    #+BEGIN_SRC emacs-lisp :tangle init.el :results silent
      (ensure-packages '(avy))
-     (global-set-key (kbd "C-'") 'avy-goto-word--or-subword-1)
-     (global-set-key (kbd "C-M-'") 'avy-pop-mark)
+     (global-set-key (kbd "C-;") 'avy-goto-word-or-subword-1)
+     (global-set-key (kbd "C-M-;") 'avy-pop-mark)
    #+END_SRC
 
 ** Magit

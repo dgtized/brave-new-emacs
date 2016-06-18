@@ -26,8 +26,8 @@
 (global-set-key (kbd "C-c C-m") 'smex-major-mode-commands)
 
 (ensure-packages '(avy))
-(global-set-key (kbd "C-'") 'avy-goto-word--or-subword-1)
-(global-set-key (kbd "C-M-'") 'avy-pop-mark)
+(global-set-key (kbd "C-;") 'avy-goto-word-or-subword-1)
+(global-set-key (kbd "C-M-;") 'avy-pop-mark)
 
 (ensure-packages '(magit))
 (global-set-key (kbd "C-x g") 'magit-status)
