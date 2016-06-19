@@ -271,18 +271,16 @@
      (projectile-global-mode)
    #+END_SRC
 
-** Emacs Slime Navigation
+** Elisp Navigation
 
-   Quickly navigate to function at point in elisp
+   Quickly navigate to function at point in elisp with xref
    | M-. | jump to function     |
    | M-, | return to last point |
 
-   Eldoc is builtin and shows function arguments in minibuffer
+   Eldoc is also builtin and shows function arguments in the minibuffer
 
    #+BEGIN_SRC emacs-lisp :tangle init.el :results silent
-     (ensure-packages '(elisp-slime-nav))
      (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
-       (add-hook hook 'turn-on-elisp-slime-nav-mode)
        (add-hook hook 'turn-on-eldoc-mode))
    #+END_SRC
 
